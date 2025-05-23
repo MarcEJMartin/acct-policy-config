@@ -24,33 +24,41 @@ In this tutorial, you’ll learn how to configure Account Policies in Active Dir
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+- Turn on the DC-1 and Client-1 virtual machines in the Azure Portal if they are off.
+- Open Group Policy Management, configure the Account Lockout Threshold to configure the account lockout threshold to 5 failed login attempts
+- Go to Active Directory Users and Computers, right-click the user account, select Reset Password, and set a new secure password
+- Test enabling and disabling the account to observe different login responses, then review Event Viewer logs on both DC-1 and Client-1 to analyze lockout events and security activity.
 
 <h2>Deployment and Configuration Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/793896bd-2830-4fdc-b6ad-be0a4c015888" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+To set up account lockout protection, open Group Policy Management on the Domain Controller (DC-1). Navigate to the appropriate Group Policy Object (GPO), usually under Default Domain Policy, and go to Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies > Account Lockout Policy. There, set the Account Lockout Threshold to 5 invalid login attempts, then attempt 6 failed logins to confirm the lockout works.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://github.com/user-attachments/assets/a73e391e-33c2-4fc3-860a-464e7d164d32" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+To reset a user's password, open Active Directory Users and Computers on the Domain Controller. Locate and right-click the user account you want to update, then select Reset Password from the context menu. Enter a new secure password, confirm it, and optionally check the box to require the user to change it at next login.
+</p>
+<br />
+
+<p>
+<img src="https://github.com/user-attachments/assets/46b989ae-ea91-47db-9cbe-7e90fffad078" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+To test account status changes, go to Active Directory Users and Computers, right-click the user account, and choose Disable Account to prevent logins. Attempt to log in with the disabled account to see the access denied message, then re-enable the account and try logging in again. 
+</p>
+<br />
+
+<p>
+<img src="https://github.com/user-attachments/assets/cef13682-b2dc-44bb-b563-4196cd408a43" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+To review security-related activity, open Event Viewer on both DC-1 and Client-1 by typing Event Viewer in the Start menu. In the Event Viewer, navigate to Windows Logs > Security to view detailed records of account lockouts, failed login attempts, and other authentication events. These logs are essential for auditing user behavior and identifying potential security issues or unauthorized access attempts. 
 </p>
 <br />
