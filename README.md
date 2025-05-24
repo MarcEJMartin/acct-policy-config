@@ -8,7 +8,7 @@ In this tutorial, you’ll learn how to configure Account Policies in Active Dir
 
 <h2>Video Demonstration</h2>
 
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
+- ### [YouTube: Configuring Account Policies for Active Directory](https://youtu.be/keqxUTkp53E)
 
 <h2>Environments and Technologies Used</h2>
 
